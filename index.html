@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JUST CHECK-INN</title>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <link rel="stylesheet" href="style.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
     <div class="container">
-      <h1 class="logo">JUST CHECK-INN</h1>
+      <h1 id="logo" onclick="changeHeaderTxt()">JUST-CHECK-INN</h1>
       <nav>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -64,17 +66,37 @@
       <h2>Contact Us</h2>
       <p>Looking to stock our poultry or ask a question? We're here to help.</p>
       <a href="mailto:naometeaneaugust@gmail.com" class="btn-secondary">Email Us</a>
-      <br>
-      <P>Call us on :(+27)60 7575 895</P>
+
+
+     <br/>
+
+      <p>Call us on: (+27) 60 7575 895</p>
+      <br/>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>Founder & CEO : NAOME TEANE</p>
+      <p>Founder & CEO: NAOME TEANE</p>
       <p>&copy; 2025 JUST CHECK-INN. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+  
+
+     gsap.from(".hero", { duration: 2, x: 900 ,ease: "bounce" });
+     gsap.from("#logo" ,{duration :2, x:-700 ,ease :"bounce" ,delay:(1.5) })
+  
+    function changeHeaderTxt() {
+      const logo = document.getElementById("logo");
+      if (logo.innerHTML === "JUST-CHECK-INN") {
+        logo.innerHTML = "QUALIY GUARANTEED";
+      } else {
+        logo.innerHTML = "JUST-CHECK-INN";
+      }
+    }
+  </script>
 
 </body>
 </html>
