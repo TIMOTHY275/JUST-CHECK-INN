@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JUST CHECK-INN</title>
+
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
   <link rel="stylesheet" href="style.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -27,9 +29,9 @@
 
   <section class="hero">
     <div class="container">
-      <h2>We Raise Quality Chickens from Hatch to Harvest</h2>
-      <p>Delivering the healthiest poultry to retailers and businesses across the country.</p>
-      <a href="#contact" class="btn-primary">Partner With Us</a>
+      <h2 id ="b" >We Raise Quality Chickens from Hatch to Harvest</h2>
+      <p id="b" >Delivering the healthiest poultry to retailers and businesses across the country.</p>
+      <a href="#contact" id ="b"class="btn-primary">Partner With Us</a>
     </div>
   </section>
 
@@ -64,16 +66,40 @@
 
   <section id="contact" class="contact">
     <div class="container">
-      <h2>Contact Us</h2>
       <p>Looking to stock our poultry or ask a question? We're here to help.</p>
-      <a href="mailto:naometeaneaugust@gmail.com" class="btn-secondary">Email Us</a>
-
 
      <br/>
 
-      <p>Call us on: (+27) 60 7575 895</p>
       <br/>
     </div>
+    <DIV ID="KONTANT">
+  <section class="fade-in" id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formsubmit.co/#" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</DIV>
+
+
+
+  <script>
+    gsap.utils.toArray('.fade-in').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+        }
+      });
+    });
+  </script>
   </section>
 
   <footer>
@@ -86,11 +112,12 @@
   <script>
   
 
-     gsap.from(".hero", { duration: 2, x: 900 ,ease: "bounce" });
-     gsap.from("#logo" ,{duration :2, x:-700 ,ease :"bounce" ,delay:(1.5) })
-  
+     gsap.from(".hero", { duration: 2, x: 900 ,ease: "bounce"  })
+     gsap.from("#logo" ,{duration :4, opacity:0 , delay:(5)})
+     gsap.from("#b" ,{duration :3, y:-700 ,ease :"fadein" ,delay:(1.5) })
+
     function changeHeaderTxt() {
-      const logo = document.getElementById("logo");
+      var logo = document.getElementById("logo")
       if (logo.innerHTML === "JUST-CHECK-INN") {
         logo.innerHTML = "QUALIY GUARANTEED";
       } else {
